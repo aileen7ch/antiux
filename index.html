@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include the external CSS file -->
+</head>
+<body>
+    <div id="home-page">
+        <div class="header-box">
+            <h1 class="center-text">Welcome to the Math Quiz!</h1>
+        </div>
+        <p class="center-text">Test your math skills by taking this quiz.</p>
+        <button id="start-button">Start Quiz</button>
+    </div>
+
+    <div id="quiz-page" style="display: none;">
+        <h1>Math Quiz</h1>
+        <div id="question-container">
+            <p id="question-text">Question goes here</p>
+            <ul id="choices">
+                <!-- Choices will be populated dynamically using JavaScript -->
+            </ul>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <div id="score-page" style="display: none;">
+        <h1>Quiz Completed!</h1>
+        <p>Your score: <span id="final-score">0</span> out of <span id="total-questions">0</span></p>
+        <button id="restart-button">Restart Quiz</button>
+    </div>
+
+    <script src="quiz.js"></script> <!-- Include the external JavaScript file -->
+</body>
+</html>
