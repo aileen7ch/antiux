@@ -38,8 +38,8 @@ function startQuiz() {
 
 function restartQuiz() {
     scorePage.style.display = "none";
-    quizPage.style.display = "none"; // Hide the quiz page
-    homePage.style.display = "block"; // Show the home page
+    quizPage.style.display = "none";
+    homePage.style.display = "block";
     currentQuestion = 0;
     score = 0;
     loadQuestion();
@@ -84,5 +84,3 @@ function showFinalScore() {
     finalScoreElement.textContent = score;
     totalQuestionsElement.textContent = questions.length;
 }
-
-loadQuestion();

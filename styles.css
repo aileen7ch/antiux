@@ -1,16 +1,16 @@
-/* Center-align text on the home page and quiz page */
+/* center-align text */
 .center-text {
     text-align: center;
 }
 
-/* Right-align text on the quiz page */
+/* right-align text*/
 #quiz-page {
     text-align: right;
 }
 
-/* Style the header box */
+/* header box */
 .header-box {
-    background-color: #F2BB77; /* Change this color to your desired background color */
+    background-color: #F2BB77;
     padding: 10px;
     margin: 0 auto;
     width: fit-content;
