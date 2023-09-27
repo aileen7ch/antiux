@@ -18,6 +18,11 @@ const questions = [
         type: "fill_in_the_blank",
         question: "What is 8 / 2 = ___?",
         correctAnswer: "4"
+    },
+    {
+        question: "What is your answer?",
+        choices: ["5, 3, 20, 0"],
+        correctAnswer: "1"
     }
 ];
 
@@ -56,6 +61,8 @@ function restartQuiz() {
 function loadQuestion() {
     const questionText = document.getElementById("question-text");
     const resultText = document.getElementById("result");
+    answerInput.style.display = "none";
+    submitButton.style.display = "none";
 
     if (currentQuestion < questions.length) {
         const currentQ = questions[currentQuestion];
@@ -64,11 +71,21 @@ function loadQuestion() {
         if (currentQ.type === "fill_in_the_blank") {
             answerInput.value = "";
             answerInput.placeholder = "Your Answer";
-            submitButton.style.display = "inline-block";
             answerInput.style.display = "block";
-        } else {
-            answerInput.style.display = "none";
-            submitButton.style.display = "none";
+            submitButton.style.display = "inline-block";
+        } else if (currentQ.type === "multiple_choice") {
+            const choicesList = document.getElementById("choices");
+            choicesList.innerHTML = "";
+
+            for (let i = 0; i < currentQ.choices.length; i++) {
+                const choice = currentQ.choices[i];
+                const choiceButton = document.createElement("button");
+                choiceButton.textContent = choice;
+                choiceButton.onclick = function() {
+                    checkAnswer(i);
+                };
+                choicesList.appendChild(document.createElement("li")).appendChild(choiceButton);
+            }
         }
 
         resultText.textContent = "";
@@ -76,6 +93,7 @@ function loadQuestion() {
         showFinalScore();
     }
 }
+
 
 function checkAnswer(selectedAnswer) {
     const currentQ = questions[currentQuestion];
