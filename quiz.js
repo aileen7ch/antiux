@@ -84,3 +84,5 @@ function showFinalScore() {
     finalScoreElement.textContent = score;
     totalQuestionsElement.textContent = questions.length;
 }
+
+loadQuestion();
