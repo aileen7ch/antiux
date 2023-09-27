@@ -13,6 +13,11 @@ const questions = [
         question: "What is 4 * 6?",
         choices: ["18", "24", "30", "36"],
         correctAnswer: 1
+    },
+    {
+        type: "fill_in_the_blank",
+        question: "What is 8 / 2 = ___?",
+        correctAnswer: "4"
     }
 ];
 
@@ -26,6 +31,9 @@ const startButton = document.getElementById("start-button");
 const restartButton = document.getElementById("restart-button");
 const finalScoreElement = document.getElementById("final-score");
 const totalQuestionsElement = document.getElementById("total-questions");
+const submitButton = document.getElementById("submit-button");
+const answerInput = document.getElementById("answer-input");
+
 
 startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
@@ -47,21 +55,20 @@ function restartQuiz() {
 
 function loadQuestion() {
     const questionText = document.getElementById("question-text");
-    const choicesList = document.getElementById("choices");
     const resultText = document.getElementById("result");
 
     if (currentQuestion < questions.length) {
-        questionText.textContent = questions[currentQuestion].question;
+        const currentQ = questions[currentQuestion];
+        questionText.textContent = currentQ.question;
 
-        choicesList.innerHTML = "";
-        for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
-            const choice = questions[currentQuestion].choices[i];
-            const choiceButton = document.createElement("button");
-            choiceButton.textContent = choice;
-            choiceButton.onclick = function() {
-                checkAnswer(i);
-            };
-            choicesList.appendChild(document.createElement("li")).appendChild(choiceButton);
+        if (currentQ.type === "fill_in_the_blank") {
+            answerInput.value = "";
+            answerInput.placeholder = "Your Answer";
+            submitButton.style.display = "inline-block";
+            answerInput.style.display = "block";
+        } else {
+            answerInput.style.display = "none";
+            submitButton.style.display = "none";
         }
 
         resultText.textContent = "";
@@ -70,9 +77,17 @@ function loadQuestion() {
     }
 }
 
-function checkAnswer(selectedIndex) {
-    if (selectedIndex === questions[currentQuestion].correctAnswer) {
-        score++;
+function checkAnswer(selectedAnswer) {
+    const currentQ = questions[currentQuestion];
+    if (currentQ.type === "multiple_choice") {
+        if (selectedAnswer === currentQ.correctAnswer) {
+            score++;
+        }
+    } else if (currentQ.type === "fill_in_the_blank") {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        if (userAnswer === currentQ.correctAnswer.toLowerCase()) {
+            score++;
+        }
     }
     currentQuestion++;
     loadQuestion();
@@ -84,5 +99,12 @@ function showFinalScore() {
     finalScoreElement.textContent = score;
     totalQuestionsElement.textContent = questions.length;
 }
+
+submitButton.addEventListener("click", () => {
+    const userAnswer = answerInput.value.trim();
+    if (userAnswer !== "") {
+        checkAnswer(userAnswer);
+    }
+});
 
 loadQuestion();
