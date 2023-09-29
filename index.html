@@ -1,48 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- name of website in tab -->
-    <title>Math Quiz</title>
+    <title>Art Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- HOME PAGE -->
-    <div id="home-page">
-        <div class="header-box">
-            <h1 class="center-text">Welcome to the Math Quiz!</h1>
+    <!-- Intro Page -->
+    <div id="introPage">
+        <div class="content">
+            <h1>Welcome to Art Gallery</h1>
+            <p>This is a place where art lovers can bid on their favorite artworks.</p>
+            <button id="proceedToLogin">Proceed to Login</button>
         </div>
-        <p class="center-text">Test your math skills by taking this quiz. You'll see questions one by one and then the final score at the end. Good luck!</p>
-        <button id="start-button">Start Quiz</button>
-    </div>
 
-    <!-- QUIZ PAGE -->
-    <div id="quiz-page" style="display: none;">
-        <h1>Math Quiz</h1>
-        <div id="question-container">
-            <p id="question-text">Question goes here</p>
-            <input type="text" id="answer-input" placeholder="Your Answer">
-            <button id="submit-button">Submit</button>
+        <div class="sidebar">
+            <h2>How to Navigate</h2>
+            <p>Click on the 'Proceed to Login' button to go to the login page. Once you're logged in, you'll be able to view the gallery and place bids on artworks.</p>
         </div>
-        <p id="result"></p>
     </div>
 
-    <!-- FINAL SCORE PAGE -->
-    <div id="score-page" style="display: none;">
-        <h1>Quiz Completed!</h1>
-        <p>Your score: <span id="final-score">0</span> out of <span id="total-questions">0</span></p>
-        <button id="restart-button">Restart Quiz</button>
+    <!-- Login Page -->
+    <div id="loginPage" style="display: none;">
+        <h1>Login</h1>
+        <!-- Login form -->
+        <form id="loginForm">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
     </div>
 
-    <!-- tiny bottom right corner text box -->
-    <div id="right-corner-box">
-        <p id="right-corner-text">The answer to question 5 is 3.</p>
+    <!-- Gallery Page -->
+    <div id="galleryPage" style="display: none;">
+        <h1>Art Gallery</h1>
+
+        <!-- Artwork gallery -->
+        <div class="gallery">
+            <div class="artwork">
+                <img src="artwork1.jpg" alt="Artwork 1">
+                <p class="currentBid">Current bid: $<span>100</span></p>
+                <input type="number" class="bidInput">
+                <button class="bidButton">Bid</button>
+            </div>
+            <!-- Add more artworks as needed -->
+            <div class="artwork">
+                <img src="artwork2.jpg" alt="Artwork 2">
+                <p class="currentBid">Current bid: $<span>100</span></p>
+                <input type="number" class="bidInput">
+                <button class="bidButton">Bid</button>
+            </div>
+            <div class="artwork">
+                <img src="artwork3.jpg" alt="Artwork 3">
+                <p class="currentBid">Current bid: $<span>100</span></p>
+                <input type="number" class="bidInput">
+                <button class="bidButton">Bid</button>
+            </div>
+            <div class="artwork">
+                <img src="artwork4.jpg" alt="Artwork 4">
+                <p class="currentBid">Current bid: $<span>100</span></p>
+                <input type="number" class="bidInput">
+                <button class="bidButton">Bid</button>
+            </div>
+        </div>
+
+        <!-- Timer and Warning Message -->
+        <div class="timer-section">
+            <p id="timer">0:30</p>
+            <p id="warningMessage"></p>
+            <button id="restartTimer">Restart Timer</button>
+        </div>
+        
     </div>
 
-    <script src="quiz.js"></script>
+    <!-- Include your JavaScript file -->
+    <script src="script.js"></script>
 </body>
-
 </html>
