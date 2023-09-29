@@ -7,17 +7,13 @@ var timerDisplay = document.getElementById('timer');
 var warningMessage = document.getElementById('warningMessage');
 var restartTimerButton = document.getElementById('restartTimer');
 
-var remainingTime = 30; // Set initial timer state (3 minutes)
+var remainingTime = 30; // Set initial timer state (30 seconds)
 var bidButtons = document.querySelectorAll('.bidButton');   // Add event listeners to bid buttons
 var proceedToLoginButton = document.getElementById('proceedToLogin');   // Get the proceed to login button
 
 bidButtons.forEach(function(button) {
     button.addEventListener('click', handleBidButtonClick);
 });
-
-restartTimerButton.addEventListener('click', restartTimer);
-proceedToLoginButton.addEventListener('click', goToLogin);
-loginForm.addEventListener('submit', openLoginForm);
 
 // Function to handle bid button click
 function handleBidButtonClick(event) {
@@ -44,6 +40,8 @@ function handleBidButtonClick(event) {
     }
 }
 
+restartTimerButton.addEventListener('click', restartTimer);
+
 // Function to restart the timer
 function restartTimer() {
     remainingTime = 30; // Reset the timer to 3 minutes
@@ -51,11 +49,37 @@ function restartTimer() {
     warningMessage.textContent = ''; // Clear the warning message
 }
 
+proceedToLoginButton.addEventListener('click', goToLogin);
+
 // Function to proceed to login button click
 function goToLogin() {
     // Hide the intro page and show the login page
     introPage.style.display = 'none';
     loginPage.style.display = 'block';
+}
+
+loginForm.addEventListener('submit', submitLogin);
+
+// Function to handle login button click
+function submitLogin(event) {
+    // Prevent the page from reloading
+    event.preventDefault();
+
+    // Get the username and password
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Check the user's credentials (placeholder)
+    if (username === 'user' && password === 'pass') {
+        // If the credentials are valid, hide the login page and show the gallery page
+        loginPage.style.display = 'none';
+        galleryPage.style.display = 'block';
+
+        // Initialize the timer
+        initializeTimer();
+    } else {
+        alert('Invalid username or password.');
+    }
 }
 
 // Function to initialize the timer
@@ -77,26 +101,4 @@ function initializeTimer() {
             updateTimerDisplay(); // Update the timer display
         }
     }, 1000);
-}
-
-// Function to handle login button click
-function openLoginForm(event) {
-    // Prevent the page from reloading
-    event.preventDefault();
-
-    // Get the username and password
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Check the user's credentials (placeholder)
-    if (username === 'user' && password === 'pass') {
-        // If the credentials are valid, hide the login page and show the gallery page
-        loginPage.style.display = 'none';
-        galleryPage.style.display = 'block';
-
-        // Initialize the timer
-        initializeTimer();
-    } else {
-        alert('Invalid username or password.');
-    }
 }
