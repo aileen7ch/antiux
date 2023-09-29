@@ -20,3 +20,13 @@ body {
     width: 25%;
     text-align: right;
 }
+.timer-section {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+#timer, #warningMessage {
+    display: inline-block;
+    margin-bottom: 10px;
+}
