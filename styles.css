@@ -3,18 +3,14 @@ h1 {
 }
 body {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: green;
 }
 .content {
     text-align: center;
 }
 .sidebar {
-    width: 25%;
     text-align: right;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 }
 .gallery {
     display: flex;
