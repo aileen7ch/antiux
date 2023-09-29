@@ -1,4 +1,3 @@
-// Get the login form and the login, intro, gallery pages, timer, and warning message
 var loginForm = document.getElementById('loginForm');
 var introPage = document.getElementById('introPage');
 var loginPage = document.getElementById('loginPage');
@@ -7,9 +6,10 @@ var timerDisplay = document.getElementById('timer');
 var warningMessage = document.getElementById('warningMessage');
 var restartTimerButton = document.getElementById('restartTimer');
 
-var remainingTime = 30; // Set initial timer state (30 seconds)
-var bidButtons = document.querySelectorAll('.bidButton');   // Add event listeners to bid buttons
-var proceedToLoginButton = document.getElementById('proceedToLogin');   // Get the proceed to login button
+var remainingTime = 30;
+var bidButtons = document.querySelectorAll('.bidButton');
+var proceedToLoginButton = document.getElementById('proceedToLogin');
+var instructionsLink = document.getElementById('instructionsLink');
 
 bidButtons.forEach(function(button) {
     button.addEventListener('click', handleBidButtonClick);
@@ -102,3 +102,8 @@ function initializeTimer() {
         }
     }, 1000);
 }
+
+// Function to handle instructions link click
+instructionsLink.addEventListener('click', function() {
+    window.alert("If you need a refresher, here!");
+});
