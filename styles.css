@@ -1,3 +1,21 @@
+h1 {
+    text-align: center;
+}
+body {
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+}
+.content {
+    text-align: center;
+}
+.sidebar {
+    width: 25%;
+    text-align: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -8,21 +26,6 @@
     margin: 10px;
     border: 2px solid black;
     padding: 10px;
-}
-h1 {
-    text-align: center;
-}
-body {
-    display: flex;
-    justify-content: space-between;
-    background-color: green;
-}
-.content {
-    width: 75%;
-}
-.sidebar {
-    width: 25%;
-    text-align: right;
 }
 .timer-section {
     bottom: 20px;
