@@ -37,10 +37,14 @@ function handleBidButtonClick(event) {
         }
     } else {
         warningMessage.textContent = 'No more time!';
-        bidButtons.forEach(function(button) {
-            button.disabled = true;
-        });
     }
+}
+
+// Function to update the timer display
+function updateTimerDisplay() {
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 restartTimerButton.addEventListener('click', restartTimer);
@@ -88,14 +92,7 @@ function submitLogin(event) {
 // Function to initialize the timer
 function initializeTimer() {
     // Set initial timer state (30 seconds)
-    var remainingTime = 30;
-
-    // Function to update the timer display
-    function updateTimerDisplay() {
-        const minutes = Math.floor(remainingTime / 60);
-        const seconds = remainingTime % 60;
-        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    }
+    remainingTime = 30;
 
     // Function to update the timer every second
     setInterval(function() {
