@@ -33,3 +33,7 @@ body {
     display: inline-block;
     margin-bottom: 10px;
 }
+#instructionsLink {
+    font-size: 14px;
+    text-align: center;
+}
