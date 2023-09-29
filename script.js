@@ -37,6 +37,9 @@ function handleBidButtonClick(event) {
         }
     } else {
         warningMessage.textContent = 'No more time!';
+        bidButtons.forEach(function(button) {
+            button.disabled = true;
+        });
     }
 }
 
