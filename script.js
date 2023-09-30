@@ -21,24 +21,18 @@ bidButtons.forEach(function(button) {
     button.addEventListener('click', handleBidButtonClick);
 });
 
-// Function to handle bid button click
 function handleBidButtonClick(event) {
     if (remainingTime > 0) {
-        // Get the parent artwork element
         var artworkElement = event.target.closest('.artwork');
 
-        // Get the current bid and the new bid amount
         var currentBidElement = artworkElement.querySelector('.currentBid span');
         var currentBid = Number(currentBidElement.textContent);
         var newBid = Number(artworkElement.querySelector('.bidInput').value);
 
-        // Check if the new bid is greater than the current bid
         if (newBid > currentBid) {
-            // If it is, update the current bid
             currentBidElement.textContent = newBid;
             console.log('Bid placed!');
         } else {
-            // Alert only if the bid is not valid
             alert('Your bid must be greater than the current bid.');
         }
     } else {
@@ -46,7 +40,6 @@ function handleBidButtonClick(event) {
     }
 }
 
-// Function to update the timer display
 function updateTimerDisplay() {
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
@@ -55,70 +48,55 @@ function updateTimerDisplay() {
 
 restartTimerButton.addEventListener('click', restartTimer);
 
-// Function to restart the timer
 function restartTimer() {
-    remainingTime = 180; // Reset the timer to 3 minutes
+    remainingTime = 180;
     updateTimerDisplay();
-    warningMessage.textContent = ''; // Clear the warning message
+    warningMessage.textContent = '';
 }
 
 proceedToIntroButton.addEventListener('click', goToIntro);
 
-// Function to proceed to intro button click
 function goToIntro() {
-    // Hide the welcome page and show the intro page
     welcomePage.style.display = 'none';
     introPage.style.display = 'block';
 }
 
 proceedToLoginButton.addEventListener('click', goToLogin);
 
-// Function to proceed to login button click
 function goToLogin() {
-    // Hide the intro page and show the login page
     introPage.style.display = 'none';
     loginPage.style.display = 'block';
 }
 
 loginForm.addEventListener('submit', submitLogin);
 
-// Function to handle login button click
 function submitLogin(event) {
-    // Prevent the page from reloading
     event.preventDefault();
 
-    // Get the username and password
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Check the user's credentials (placeholder)
     if (username === 'user' && password === 'pass') {
-        // If the credentials are valid, hide the login page and show the gallery page
         loginPage.style.display = 'none';
         galleryPage.style.display = 'block';
 
-        // Initialize the timer
         initializeTimer();
     } else {
         alert('Invalid username or password.');
     }
 }
 
-// Function to initialize the timer
 function initializeTimer() {
-    // Set initial timer state (30 seconds)
-    remainingTime = 30;
+    remainingTime = 180;
 
-    // Function to update the timer every second
     setInterval(function() {
         if (remainingTime > 0) {
-            remainingTime--; // Decrease remaining time by 1 second
-            updateTimerDisplay(); // Update the timer display
+            remainingTime--;
+            updateTimerDisplay();
         }
     }, 1000);
 }
 
-// Function to handle instructions link click
 instructionsLink.addEventListener('click', function() {
     const message = `Your job is to go through this art gallery website and bid on these specific artworks with the following prices:\n
     1. Artwork 1 - $20000000\n
@@ -132,9 +110,15 @@ instructionsLink.addEventListener('click', function() {
     If the current bid for a certain art piece is higher than the specified amount above, please bid with $999999999, because no bid amount will be higher than that price!\n
     Okay, thanks!`;
 
-    // Set the message as the content of the instructions container
     instructionsContainer.textContent = message;
 
-    // Make the instructions container visible
     instructionsContainer.style.display = 'block';
+});
+
+var finishButton = document.getElementById('finishButton');
+var thankYouMessage = document.getElementById('thankYouMessage');
+
+finishButton.addEventListener('click', function() {
+    thankYouMessage.style.display = 'block';
+    document.getElementById('galleryPage').style.display = 'none';
 });
