@@ -1,56 +1,46 @@
 h1 {
     text-align: center;
 }
-
 body {
     display: flex;
     justify-content: flex-end;
     background-color: #15f4ee;
     margin: 10px;
 }
-
 .directions-header {
     text-align: center;
 }
-
 .directions {
     text-align: center;
 }
-
 .main-header {
     text-align: center;
 }
-
 .sidebar {
     width: 15%;
     text-align: center;
     margin-left: auto;
 }
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 .artwork {
     margin: 10px;
     border: 2px solid black;
     padding: 10px;
     background-color: #ff08fc;
 }
-
 .timer-section {
     bottom: 20px;
     right: 20px;
     text-align: right;
 }
-
 #timer, #warningMessage {
     display: inline-block;
     margin-bottom: 10px;
 }
-
 #instructionsLink {
     font-size: 14px;
     text-align: center;
