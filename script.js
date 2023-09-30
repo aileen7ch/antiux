@@ -76,7 +76,7 @@ function submitLogin(event) {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    if (username === 'user' && password === 'pass') {
+    if (username === 'janejjdoe' && password === 'pass') {
         loginPage.style.display = 'none';
         galleryPage.style.display = 'block';
 
