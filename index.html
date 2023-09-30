@@ -53,10 +53,10 @@
         <h1>Login</h1>
         <!-- Login form -->
         <form id="loginForm">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
+            <input type="text" id="username" name="username" placeholder="Username">
+            <br>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <br>
             <input type="submit" value="Login">
         </form>
     </div>
@@ -64,7 +64,9 @@
     <!-- Gallery Page -->
     <div id="galleryPage" style="display: none;">
         <h1>Art Gallery</h1>
-        <h2 id="instructionsLink">Bidding for someone? Here are your specific instructions.</h2>
+        <h2 id="instructionsLink">Bidding for someone? Look at your instructions again.</h2>
+
+        <div id="instructionsContainer" class="instructions-container"></div>
 
         <!-- Artwork gallery -->
         <div class="gallery">

@@ -9,6 +9,7 @@ var loginForm = document.getElementById('loginForm');
 
 var galleryPage = document.getElementById('galleryPage');
 var bidButtons = document.querySelectorAll('.bidButton');
+var instructionsContainer = document.getElementById('instructionsContainer');
 var instructionsLink = document.getElementById('instructionsLink');
 
 var restartTimerButton = document.getElementById('restartTimer');
@@ -119,17 +120,21 @@ function initializeTimer() {
 
 // Function to handle instructions link click
 instructionsLink.addEventListener('click', function() {
-    const message = `Your job is to go through this art gallery website and bid on these specific artpieces with the following prices:
-    1. Artwork 1 - 20000000
-    2. Artwork 3 - 42000000
-    3. Artwork 5 - 68000000
-    4. Artwork 6 - 59000000
-    5. Artwork 8 - 92000000
-    6. Artwork 9 - 26000000
-    7. Artwork 10 - 38000000
-    8. Artwork 14 - 27000000
-    If the current bid for a certain art piece is higher than the specified amount above, please bid with $999999999, because bid amount will be higher than that price!
+    const message = `Your job is to go through this art gallery website and bid on these specific artworks with the following prices:\n
+    1. Artwork 1 - $20000000\n
+    2. Artwork 3 - $42000000\n
+    3. Artwork 5 - $68000000\n
+    4. Artwork 6 - $59000000\n
+    5. Artwork 8 - $92000000\n
+    6. Artwork 9 - $26000000\n
+    7. Artwork 10 - $38000000\n
+    8. Artwork 14 - $27000000\n
+    If the current bid for a certain art piece is higher than the specified amount above, please bid with $999999999, because no bid amount will be higher than that price!\n
     Okay, thanks!`;
 
-    window.alert(message);
+    // Set the message as the content of the instructions container
+    instructionsContainer.textContent = message;
+
+    // Make the instructions container visible
+    instructionsContainer.style.display = 'block';
 });

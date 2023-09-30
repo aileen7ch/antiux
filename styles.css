@@ -46,6 +46,13 @@ body {
     display: inline-block;
     margin-bottom: 10px;
 }
+.instructions-container {
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 20px;
+    margin-top: 10px;
+}
 #instructionsLink {
     font-size: 14px;
     text-align: center;
