@@ -120,15 +120,15 @@ function initializeTimer() {
 // Function to handle instructions link click
 instructionsLink.addEventListener('click', function() {
     const message = `Your job is to go through this art gallery website and bid on these specific artpieces with the following prices:
-    1. Artwork 1 - $20000000
-    2. Artwork 3 - $42000000
-    3. Artwork 5 - $68270830
-    4. Artwork 6 - $59000000
-    5. Artwork 8 - $92700000
-    6. Artwork 9 - $26039999
-    7. Artwork 10 - $38000000
-    8. Artwork 14 - $27900000
-    If the current bid for a certain art piece is higher than the specified amount above, please bid with $999000000, because bid amount will be higher than that price!
+    1. Artwork 1 - 20000000
+    2. Artwork 3 - 42000000
+    3. Artwork 5 - 68000000
+    4. Artwork 6 - 59000000
+    5. Artwork 8 - 92000000
+    6. Artwork 9 - 26000000
+    7. Artwork 10 - 38000000
+    8. Artwork 14 - 27000000
+    If the current bid for a certain art piece is higher than the specified amount above, please bid with $999999999, because bid amount will be higher than that price!
     Okay, thanks!`;
 
     window.alert(message);
