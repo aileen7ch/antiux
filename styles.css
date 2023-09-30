@@ -5,7 +5,7 @@ h1 {
 body {
     display: flex;
     justify-content: flex-end;
-    background-color: green;
+    background-color: #15f4ee;
     margin: 10px;
 }
 
@@ -31,13 +31,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: green;
 }
 
 .artwork {
     margin: 10px;
     border: 2px solid black;
     padding: 10px;
+    background-color: #ff08fc;
 }
 
 .timer-section {

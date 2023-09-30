@@ -14,7 +14,6 @@ var instructionsLink = document.getElementById('instructionsLink');
 var restartTimerButton = document.getElementById('restartTimer');
 var warningMessage = document.getElementById('warningMessage');
 var timerDisplay = document.getElementById('timer');
-
 var remainingTime = 30;
 
 bidButtons.forEach(function(button) {
@@ -120,15 +119,17 @@ function initializeTimer() {
 
 // Function to handle instructions link click
 instructionsLink.addEventListener('click', function() {
-    window.alert("Your job is to go through this art gallery website and bid on these specific artpieces with the following prices:\n
-        1. Artwork 1 - $20000000\n
-        2. Artwork 3 - $42000000\n
-        3. Artwork 5 - $68270830\n
-        4. Artwork 6 - $59000000\n
-        5. Artwork 8 - $92700000\n
-        6. Artwork 9 - $26039999\n
-        7. Artwork 10 - $38000000\n
-        8. Artwork 14 - $27900000\n
-        If a certain piece of artwork's current bid is higher than the specified amount above, please bid with $999000000, because Mrs. Doe knows no piece of artwork's bid price will be higher than that amount!\n
-        Okay, thanks!");
+    const message = `Your job is to go through this art gallery website and bid on these specific artpieces with the following prices:
+    1. Artwork 1 - $20000000
+    2. Artwork 3 - $42000000
+    3. Artwork 5 - $68270830
+    4. Artwork 6 - $59000000
+    5. Artwork 8 - $92700000
+    6. Artwork 9 - $26039999
+    7. Artwork 10 - $38000000
+    8. Artwork 14 - $27900000
+    If the current bid for a certain art piece is higher than the specified amount above, please bid with $999000000, because bid amount will be higher than that price!
+    Okay, thanks!`;
+
+    window.alert(message);
 });
