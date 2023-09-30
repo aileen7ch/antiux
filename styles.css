@@ -9,7 +9,15 @@ body {
     margin: 10px;
 }
 
-.content {
+.directions-header {
+    text-align: center;
+}
+
+.directions {
+    text-align: center;
+}
+
+.main-header {
     text-align: center;
 }
 

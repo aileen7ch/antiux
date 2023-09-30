@@ -1,15 +1,21 @@
-var loginForm = document.getElementById('loginForm');
+var welcomePage = document.getElementById('welcomePage');
+var proceedToIntroButton = document.getElementById('proceedToIntro');
+
 var introPage = document.getElementById('introPage');
+var proceedToLoginButton = document.getElementById('proceedToLogin');
+
 var loginPage = document.getElementById('loginPage');
+var loginForm = document.getElementById('loginForm');
+
 var galleryPage = document.getElementById('galleryPage');
-var timerDisplay = document.getElementById('timer');
-var warningMessage = document.getElementById('warningMessage');
+var bidButtons = document.querySelectorAll('.bidButton');
+var instructionsLink = document.getElementById('instructionsLink');
+
 var restartTimerButton = document.getElementById('restartTimer');
+var warningMessage = document.getElementById('warningMessage');
+var timerDisplay = document.getElementById('timer');
 
 var remainingTime = 30;
-var bidButtons = document.querySelectorAll('.bidButton');
-var proceedToLoginButton = document.getElementById('proceedToLogin');
-var instructionsLink = document.getElementById('instructionsLink');
 
 bidButtons.forEach(function(button) {
     button.addEventListener('click', handleBidButtonClick);
@@ -54,6 +60,15 @@ function restartTimer() {
     remainingTime = 30; // Reset the timer to 3 minutes
     updateTimerDisplay();
     warningMessage.textContent = ''; // Clear the warning message
+}
+
+proceedToIntroButton.addEventListener('click', goToIntro);
+
+// Function to proceed to intro button click
+function goToIntro() {
+    // Hide the welcome page and show the intro page
+    welcomePage.style.display = 'none';
+    introPage.style.display = 'block';
 }
 
 proceedToLoginButton.addEventListener('click', goToLogin);
@@ -105,5 +120,15 @@ function initializeTimer() {
 
 // Function to handle instructions link click
 instructionsLink.addEventListener('click', function() {
-    window.alert("If you need a refresher, here!");
+    window.alert("Your job is to go through this art gallery website and bid on these specific artpieces with the following prices:\n
+        1. Artwork 1 - $20000000\n
+        2. Artwork 3 - $42000000\n
+        3. Artwork 5 - $68270830\n
+        4. Artwork 6 - $59000000\n
+        5. Artwork 8 - $92700000\n
+        6. Artwork 9 - $26039999\n
+        7. Artwork 10 - $38000000\n
+        8. Artwork 14 - $27900000\n
+        If a certain piece of artwork's current bid is higher than the specified amount above, please bid with $999000000, because Mrs. Doe knows no piece of artwork's bid price will be higher than that amount!\n
+        Okay, thanks!");
 });
