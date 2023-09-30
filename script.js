@@ -14,7 +14,7 @@ var instructionsLink = document.getElementById('instructionsLink');
 var restartTimerButton = document.getElementById('restartTimer');
 var warningMessage = document.getElementById('warningMessage');
 var timerDisplay = document.getElementById('timer');
-var remainingTime = 30;
+var remainingTime = 180;
 
 bidButtons.forEach(function(button) {
     button.addEventListener('click', handleBidButtonClick);
@@ -56,7 +56,7 @@ restartTimerButton.addEventListener('click', restartTimer);
 
 // Function to restart the timer
 function restartTimer() {
-    remainingTime = 30; // Reset the timer to 3 minutes
+    remainingTime = 180; // Reset the timer to 3 minutes
     updateTimerDisplay();
     warningMessage.textContent = ''; // Clear the warning message
 }
