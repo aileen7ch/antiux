@@ -27,10 +27,15 @@ body {
     justify-content: space-around;
 }
 .artwork {
-    margin: 10px;
+    margin: 1vw; /* Use viewport width units for margin */
     border: 2px solid black;
-    padding: 10px;
+    padding: 2vw; /* Use viewport width units for padding */
     background-color: #ff08fc;
+    width: 30%; /* Set a percentage-based width */
+}
+.artwork img {
+    width: 100%; /* Make the image fill 100% of the container */
+    height: auto; /* Maintain aspect ratio of the image */
 }
 .timer-section {
     bottom: 20px;
